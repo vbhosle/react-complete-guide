@@ -6,25 +6,25 @@ class App extends Component {
 
   state = {
     persons: [
-      { name: 'Viraj', age: 26 },
-      { name: 'Rahul', age: 29 },
-      { name: 'Max', age: 28 }
+      { id: '232', name: 'Max', age: 26 },
+      { id: '335', name: 'Rahul', age: 29 },
+      { id: '654', name: 'Max', age: 28 }
     ],
     showPersons: false
   }
 
   deletePersonHandler = (index) => {
     const persons = this.state.persons.slice();
-    persons.splice(index,1);
-    this.setState({persons: persons});
+    persons.splice(index, 1);
+    this.setState({ persons: persons });
   }
 
   nameChangedHandler = (event) => {
     this.setState({
       persons: [
-        { name: 'Max', age: 26 },
-        { name: event.target.value, age: 29 },
-        { name: 'Max', age: 28 }
+        { id: '232', name: 'Max', age: 26 },
+        { id: '335', name: event.target.value, age: 29 },
+        { id: '654', name: 'Max', age: 28 }
       ]
     });
   }
@@ -49,7 +49,8 @@ class App extends Component {
         <div>
           {
             this.state.persons.map(
-              (person,index) => <Person
+              (person, index) => <Person
+                key={person.id}
                 click={() => this.deletePersonHandler(index)}
                 name={person.name}
                 age={person.age} />
