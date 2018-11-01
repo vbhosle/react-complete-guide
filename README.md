@@ -1,3 +1,5 @@
+## This project is for React hands on, from Udemy course by Maximilian Schwarzmüller
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
