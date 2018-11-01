@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person';
-import Radium from 'radium';
+import Radium, { StyleRoot } from 'radium';
 
 class App extends Component {
 
@@ -69,7 +69,7 @@ class App extends Component {
                 click={() => this.deletePersonHandler(index)}
                 name={person.name}
                 age={person.age}
-                changed={(event) => this.nameChangedHandler(event,person.id)} />
+                changed={(event) => this.nameChangedHandler(event, person.id)} />
             )
           }
         </div>
@@ -83,27 +83,29 @@ class App extends Component {
 
     let classes = [];
 
-    if(this.state.persons.length<=2){
+    if (this.state.persons.length <= 2) {
       classes.push('red');
     }
 
-    if(this.state.persons.length<=1){
+    if (this.state.persons.length <= 1) {
       classes.push('bold');
     }
 
     return (
-      <div className="App">
-        <h1>React App!</h1>
-        <p className={classes.join(' ')}>This is working!</p>
-        <button
-          style={style}
-          onClick={this.togglePersonsHandler}>
-          Toggle Persons
+      <StyleRoot>
+        <div className="App">
+          <h1>React App!</h1>
+          <p className={classes.join(' ')}>This is working!</p>
+          <button
+            style={style}
+            onClick={this.togglePersonsHandler}>
+            Toggle Persons
         </button>
 
-        {persons}
+          {persons}
 
-      </div>
+        </div>
+      </StyleRoot>
     );
 
     // return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Programatic form of JSX!'));
